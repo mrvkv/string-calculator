@@ -21,3 +21,13 @@ it("should handle comma and newline both in number string", () => {
 it("should throw error in case number string contains comma and newline without any number in between", () => {
     expect(() => stringCalculator("1,\n")).toThrow("input is incorrect");
 });
+
+it("should handle the change delimeter characters and perform the operation", () => {
+    expect(stringCalculator("//;\n1;2;3")).toEqual(6);
+    expect(stringCalculator("//%\n1%2%3%4")).toEqual(10);
+});
+
+it("should throw error in case string contains delimeter and newline without any number in between", () => {
+    expect(() => stringCalculator("//;\n;1;2")).toThrow("input is incorrect");
+    expect(() => stringCalculator("//;\n;;2")).toThrow("input is incorrect");
+});
