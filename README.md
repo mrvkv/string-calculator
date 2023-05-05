@@ -1,0 +1,2 @@
+# String Calculator
+The method can take up to two numbers, separated by delimiter, and will return their sum.
