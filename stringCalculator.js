@@ -6,7 +6,8 @@
 module.exports = (numberString = "") => {
     let sum = 0;
     if(numberString !== "") {
-        const numbers = numberString.split(",");
+        const numbers = numberString.split(new RegExp("[,\n]", "g"));
+
         sum = numbers.map(number => +number).reduce((accumulator, currentValue) => accumulator + currentValue, sum);
     }
 
