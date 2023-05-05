@@ -31,3 +31,10 @@ it("should throw error in case string contains delimeter and newline without any
     expect(() => stringCalculator("//;\n;1;2")).toThrow("input is incorrect");
     expect(() => stringCalculator("//;\n;;2")).toThrow("input is incorrect");
 });
+
+it("should throw error for negative numbers in string", () => {
+    expect(() => stringCalculator("-1")).toThrow("negatives not allowed: -1");
+    expect(() => stringCalculator("-1,-2")).toThrow("negatives not allowed: -1,-2");
+    expect(() => stringCalculator("1\n2,-3")).toThrow("negatives not allowed: -3");
+    expect(() => stringCalculator("//;\n1;2;-3")).toThrow("negatives not allowed: -3");
+});

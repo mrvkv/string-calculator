@@ -17,7 +17,12 @@ module.exports = (numberString = "") => {
         if(numbers.includes(undefined) || numbers.includes("")) {
             throw new Error("input is incorrect");
         }
-
+        
+        const negativeNumbers = numbers.filter(number => +number < 0);
+        if(negativeNumbers.length) {
+            throw new Error(`negatives not allowed: ${negativeNumbers.join(",")}`);
+        }
+        
         sum = numbers.map(number => +number).reduce((accumulator, currentValue) => accumulator + currentValue, sum);
     }
 
