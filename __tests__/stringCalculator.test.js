@@ -17,3 +17,7 @@ it("should handle comma and newline both in number string", () => {
     expect(stringCalculator("1,2\n3")).toEqual(6);
     expect(stringCalculator("1,2\n3\n4")).toEqual(10);
 });
+
+it("should throw error in case number string contains comma and newline without any number in between", () => {
+    expect(() => stringCalculator("1,\n")).toThrow("input is incorrect");
+});
